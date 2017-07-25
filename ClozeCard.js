@@ -8,7 +8,7 @@ function ClozeCard(text, cloze) {
 
 	// Confirm that the cloze statement appears within the complete text
 	if (!textToLower.includes(clozeToLower)) {
-		console.log("ERROR: cloze-deletion does not appear within full text -- <" + cloze + ">");
+		console.log("ERROR: " + "'" + cloze + "'" + " does not appear within the answer");
 		return;
 	}
 
