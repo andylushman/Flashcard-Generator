@@ -5,7 +5,8 @@ An educational program that uses cloze deletion.
 To install the application, first clone this repository:
 
 git clone https://github.com/andylushman/Flashcard-Generator.git  
-Then install the inquirer package for command line interaction.  
+
+Then install the inquirer package for command line interaction:  
 
 npm install inquirer  
 
