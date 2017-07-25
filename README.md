@@ -9,7 +9,7 @@ Then install the inquirer package for command line interaction.
 
 npm install inquirer  
 
-#Run  
+# Run  
 
 To run the game execute the following command:  
 
