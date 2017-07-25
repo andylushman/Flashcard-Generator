@@ -3,9 +3,9 @@ var inquirer = require("inquirer");
 
 // Import the flash cards constructor implementations
 var BasicCard = require("./BasicCard.js");
-var ClozeCard = require)("./ClozeCard.js")
+var ClozeCard = require("./ClozeCard.js")
 // Import the full list of questions
-var questions = require('./questions.js');
+var questions = require("./questions.js");
 
 // Variable that holds the cloze-deleted questions list
 var closeQuestions = [];
@@ -27,19 +27,19 @@ var answerWrong = 0;
 function askQuestion() {
 	inquirer.prompt([
 		{
-			type: 'input',
-			message: closeQuestions[currentQuestion].partial + '\nAnswer: ',
-			name: 'userGuess'
+			type: "input",
+			message: closeQuestions[currentQuestion].partial + "\nAnswer: ",
+			name: "userGuess"
 		}
-	]).then(function (answers) {
-		console.log('\n');
+	]).then((answers) => {
+		console.log("\n");
 
 		// Check if the user has guessed correctly
 		if (answers.userGuess.toLowerCase() === closeQuestions[currentQuestion].cloze.toLowerCase()) {
-			console.log('Correct!');
+			console.log("Correct!");
 			answerRight++;
 		} else {
-			console.log('Incorrect!');
+			console.log("Incorrect!");
 			answerWrong++;
 		}
 
@@ -52,36 +52,36 @@ function askQuestion() {
 			currentQuestion++;
 			askQuestion();
 		} else {
-			console.log('Game Over!');
-			console.log('Correct Answers: ' + answerRight);
-			console.log('Incorrect Answers: ' + answerWrong);
+			console.log("Game Over!");
+			console.log("Correct Answers: " + answerRight);
+			console.log("Incorrect Answers: " + answerWrong);
 
 			console.log('-------------------------------------\n');
 
 			// Prompt the user to play again
 			inquirer.prompt([
 				{
-					type: 'confirm',
-					message: 'Would you like to play again?',
-					name: 'playAgain'
+					type: "confirm",
+					message: "Would you like to play again?",
+					name: "playAgain"
 				}
-			]).then(function (answers) {
+			]).then((answers) => {
 				if (answers.playAgain) {
 					// Reset the game
 					currentQuestion = 0;
 					answerRight = 0;
 					answerWrong = 0;
 
-					// Begin asking the questions!
+					// Begin asking the questions
 					askQuestion();
 				} else {
 					// Exit the game
-					console.log('Thanks for playing! Goodbuy!');
+					console.log("Thanks for playing! Goodbuy!");
 				}
 			})
 		}
 	})
-}
+} //End askQuestion()
 
 // Begin asking the questions!
 askQuestion();
